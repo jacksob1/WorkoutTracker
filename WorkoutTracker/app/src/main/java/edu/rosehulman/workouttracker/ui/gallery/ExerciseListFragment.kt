@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import edu.rosehulman.workouttracker.ExerciseAdapter
 import edu.rosehulman.workouttracker.ExerciseViewModel
 import edu.rosehulman.workouttracker.R
 import edu.rosehulman.workouttracker.databinding.FragmentExerciseListBinding
@@ -21,7 +23,14 @@ class ExerciseListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentExerciseListBinding.inflate(inflater, container, false)
+        val adapter = ExerciseAdapter(this)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.setHasFixedSize(true)
 
+        binding.fab.setOnClickListener {
+            TODO("Not yet implemented")
+        }
         return binding.root
     }
 }
