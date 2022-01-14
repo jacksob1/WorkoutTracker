@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="edu.rosehulman.workouttracker.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="edu.rosehulman.workouttracker.ui.gallery.ExerciseListFragment"
+        android:label="@string/menu_track_workout"
+        tools:layout="@layout/fragment_exercise_list" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="edu.rosehulman.workouttracker.ui.gallery.ExerciseListFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_exercise_list" />
+        android:id="@+id/nav_exercise_form"
+        android:name="edu.rosehulman.workouttracker.ui.home.HomeFragment"
+        android:label="@string/menu_edit_workout"
+        tools:layout="@layout/fragment_exercise_form" />
 
     <fragment
         android:id="@+id/nav_slideshow"

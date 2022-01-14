@@ -31,7 +31,7 @@ class ExerciseListFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             adapter.addExercise(null)
-            //TODO findNavController().navigate()
+            findNavController().navigate(R.id.nav_exercise_form)
         }
         return binding.root
     }

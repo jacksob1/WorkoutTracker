@@ -16,4 +16,6 @@
     <string name="exercise_name">Exercise</string>
     <string name="notes">Notes:</string>
     <string name="default_note">Default Note</string>
+    <string name="menu_track_workout">Track Workout</string>
+    <string name="menu_edit_workout">Enter Workout</string>
 </resources>
