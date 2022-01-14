@@ -14,7 +14,7 @@ class ExerciseViewModel: ViewModel() {
     fun getCurrentExercise() = getExerciseAt(currentPos)
     fun size() = exercises.size
 
-    fun addQuote(exercise: Exercise?) {
+    fun addExercise(exercise: Exercise?) {
         val defaultExercise = Exercise()
 
         val newExercise = exercise ?: defaultExercise

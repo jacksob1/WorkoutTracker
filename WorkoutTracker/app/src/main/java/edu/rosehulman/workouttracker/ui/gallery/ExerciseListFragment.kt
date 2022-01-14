@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.rosehulman.workouttracker.ExerciseAdapter
 import edu.rosehulman.workouttracker.ExerciseViewModel
@@ -29,7 +30,8 @@ class ExerciseListFragment : Fragment() {
         binding.recyclerView.setHasFixedSize(true)
 
         binding.fab.setOnClickListener {
-            TODO("Not yet implemented")
+            adapter.addExercise(null)
+            //TODO findNavController().navigate()
         }
         return binding.root
     }
