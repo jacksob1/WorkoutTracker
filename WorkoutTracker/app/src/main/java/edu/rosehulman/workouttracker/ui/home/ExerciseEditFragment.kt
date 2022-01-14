@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -26,13 +28,16 @@ class ExerciseEditFragment : Fragment() {
         binding = FragmentExerciseFormBinding.inflate(inflater, container, false)
 
         setupListeners()
+        val items = resources.getStringArray(R.array.default_exercises)
+        val adapter = ArrayAdapter(requireActivity(), R.layout.drop_down_item, items)
+        binding.pickerTextView.setAdapter(adapter)
         updateView()
         return binding.root
     }
 
     fun setupListeners() {
         binding.doneButton.setOnClickListener {
-            model.getCurrentExercise().name = binding.menu.editText!!.text.toString()
+            model.getCurrentExercise().name = binding.pickerTextView.text.toString()
             model.getCurrentExercise().sets = binding.exerciseSetsValue.text.toString().toInt()
             model.getCurrentExercise().reps = binding.exerciseRepsValue.text.toString().toInt()
             model.getCurrentExercise().notes = binding.exerciseNotesValue.text.toString()
@@ -46,7 +51,7 @@ class ExerciseEditFragment : Fragment() {
     }
 
     fun updateView() {
-        binding.menu.editText!!.setText(model.getCurrentExercise().name)
+        //binding.pickerTextView.setText(model.getCurrentExercise().name)
         binding.exerciseSetsValue.setText(model.getCurrentExercise().sets.toString())
         binding.exerciseRepsValue.setText(model.getCurrentExercise().reps.toString())
         binding.exerciseNotesValue.setText(model.getCurrentExercise().notes)

@@ -27,7 +27,6 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
     override fun getItemCount() = model.size()
     fun addExercise(exercise: Exercise?) {
         model.addExercise(exercise)
-        notifyDataSetChanged()
     }
 
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

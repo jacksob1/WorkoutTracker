@@ -23,4 +23,10 @@
     <string name="exercise">Exercise</string>
     <string name="exercise_name_label">Exercise Name:</string>
     <string name="save">Save</string>
+    <string-array name="default_exercises">
+        <item>Pull Ups</item>
+        <item>Push Ups</item>
+        <item>Sit Ups</item>
+        <item>Forearm Plank</item>
+    </string-array>
 </resources>
