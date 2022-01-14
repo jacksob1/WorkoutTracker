@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_exercise_form"
-        android:name="edu.rosehulman.workouttracker.ui.home.HomeFragment"
+        android:name="edu.rosehulman.workouttracker.ui.home.ExerciseEditFragment"
         android:label="@string/menu_edit_workout"
         tools:layout="@layout/fragment_exercise_form" />
 

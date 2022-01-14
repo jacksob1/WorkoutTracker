@@ -20,6 +20,7 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ExerciseAdapter.ExerciseViewHolder, position: Int) {
+        model.updateCurrentPos(position)
         holder.bind(model.getExerciseAt(position))
     }
 
