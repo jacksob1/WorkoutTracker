@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505396507734",
+    "project_id": "workout-tracker-jacksob1",
+    "storage_bucket": "workout-tracker-jacksob1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505396507734:android:89d2f26fa3738b892077f7",
+        "android_client_info": {
+          "package_name": "edu.rosehulman.workouttracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505396507734-npe9ocm6qkqv2q9qnbkk1p8eeuaureg5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt4xHvwoleCAKsgrr0pe6DyWPtxUuTnmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505396507734-npe9ocm6qkqv2q9qnbkk1p8eeuaureg5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
