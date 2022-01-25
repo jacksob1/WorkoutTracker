@@ -47,7 +47,7 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
                 model.updateCurrentPos(adapterPosition)
                 exerciseViewModel.exercises = model.getCurrentWorkout().exercises
                 exerciseViewModel.updateCurrentPos(0)
-                itemView.findNavController().navigate(R.id.nav_track_workout)
+                itemView.findNavController().navigate(R.id.nav_view_workout)
             }
         }
 

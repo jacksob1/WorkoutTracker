@@ -27,7 +27,10 @@
         android:id="@+id/nav_save_workout"
         android:name="edu.rosehulman.workouttracker.ui.SaveWorkoutFragment"
         android:label="@string/save_workout"
-        tools:layout="@layout/fragment_save_workout"
-
-        />
+        tools:layout="@layout/fragment_save_workout" />
+    <fragment
+        android:id="@+id/nav_view_workout"
+        android:name="edu.rosehulman.workouttracker.ui.ViewWorkoutFragment"
+        android:label="@string/view_workout"
+        tools:layout="@layout/fragment_view_workout"/>
 </navigation>

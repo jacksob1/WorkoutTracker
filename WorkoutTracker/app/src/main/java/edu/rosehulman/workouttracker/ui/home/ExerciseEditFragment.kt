@@ -53,7 +53,11 @@ class ExerciseEditFragment : Fragment() {
     }
 
     fun updateView() {
-        //binding.pickerTextView.setText(model.getCurrentExercise().name)
+        var name = model.getCurrentExercise().name
+
+        if(!name.contentEquals("Exercise") || name.isNotBlank()) {
+            binding.pickerTextView.setText(model.getCurrentExercise().name)
+        }
         binding.exerciseSetsValue.setText(model.getCurrentExercise().sets.toString())
         binding.exerciseRepsValue.setText(model.getCurrentExercise().reps.toString())
         binding.exerciseNotesValue.setText(model.getCurrentExercise().notes)
