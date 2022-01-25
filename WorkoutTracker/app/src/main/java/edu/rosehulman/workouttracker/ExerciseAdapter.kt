@@ -28,7 +28,7 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
     override fun getItemCount() = model.size()
     fun addExercise(exercise: Exercise?) {
         if(model.size() != 0) {
-            model.updateCurrentPos(model.currentPos + 1)
+            model.updateCurrentPos(model.size())
         }
         model.addExercise(exercise)
     }
