@@ -55,7 +55,7 @@ class ExerciseEditFragment : Fragment() {
     fun updateView() {
         var name = model.getCurrentExercise().name
 
-        if(!name.contentEquals("Exercise") || name.isNotBlank()) {
+        if(name != "Exercise" && name.isNotBlank()) {
             binding.pickerTextView.setText(model.getCurrentExercise().name)
         }
         binding.exerciseSetsValue.setText(model.getCurrentExercise().sets.toString())
