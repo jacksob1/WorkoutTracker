@@ -21,7 +21,7 @@ class WorkoutsViewModel : ViewModel() {
     fun addWorkout(workout: Workout?, observer: () -> Unit) {
         var newWorkout = workout?: Workout()
         if(size() > 0) {
-            currentPos++
+            updateCurrentPos(size())
         }
         workouts.add(newWorkout)
         updateAdapter = observer
@@ -30,7 +30,7 @@ class WorkoutsViewModel : ViewModel() {
     fun addWorkout(workout: Workout?) {
         var newWorkout = workout?: Workout()
         if(size() > 0) {
-            currentPos++
+            updateCurrentPos(size())
         }
         workouts.add(newWorkout)
     }

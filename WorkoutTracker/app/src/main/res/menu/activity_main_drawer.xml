@@ -4,14 +4,8 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-<!--        <item-->
-<!--            android:id="@+id/nav_exercise_form"-->
-<!--            android:title="@string/menu_edit_workout" />-->
         <item
             android:id="@+id/nav_home"
             android:title="@string/menu_past_workouts" />
-        <item
-            android:id="@+id/nav_track_workout"
-            android:title="@string/menu_track_workout" />
     </group>
 </menu>

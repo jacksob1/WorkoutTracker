@@ -45,6 +45,7 @@ class SaveWorkoutFragment : Fragment() {
             exerciseModel.exercises = ArrayList<Exercise>()
             findNavController().navigate(R.id.nav_home)
         }
+        binding.workoutName.setText(workoutsViewModel.getCurrentWorkout().name)
         return binding.root
     }
 }
