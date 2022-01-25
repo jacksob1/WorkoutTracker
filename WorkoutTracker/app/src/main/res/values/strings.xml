@@ -36,4 +36,6 @@
     <string name="save_workout_as">Save Workout As:</string>
     <string name="save_workout">Save Workout</string>
     <string name="workout">Workout</string>
+    <string name="dev_name">Brandon Jackson</string>
+    <string name="dev_email">jacksob1@rose-hulman.edu</string>
 </resources>

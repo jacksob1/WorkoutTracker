@@ -28,6 +28,11 @@ class ExerciseViewModel: ViewModel() {
         exercises[currentPos].notes = notes
     }
 
+    fun reset() {
+        exercises = ArrayList<Exercise>()
+        currentPos = 0
+    }
+
     fun removeCurrentQuote() {
         exercises.removeAt(currentPos)
         currentPos = 0

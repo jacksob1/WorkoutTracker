@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import edu.rosehulman.workouttracker.Exercise
 import edu.rosehulman.workouttracker.ExerciseViewModel
 import edu.rosehulman.workouttracker.R
 import edu.rosehulman.workouttracker.Workout
@@ -40,6 +41,8 @@ class SaveWorkoutFragment : Fragment() {
             name = if(name.isNotBlank()) {name} else {"Workout${Random.nextInt(100)}"}
             var exercises = exerciseModel.exercises
             workoutsViewModel.updateCurrentWorkout(name, exercises)
+
+            exerciseModel.exercises = ArrayList<Exercise>()
             findNavController().navigate(R.id.nav_home)
         }
         return binding.root

@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import edu.rosehulman.workouttracker.ui.slideshow.WorkoutListFragment
 import edu.rosehulman.workouttracker.ui.slideshow.WorkoutsViewModel
 
 class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
     val model = ViewModelProvider(fragment.requireActivity()).get(WorkoutsViewModel::class.java)
+    val exerciseViewModel = ViewModelProvider(fragment.requireActivity()).get(ExerciseViewModel::class.java)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -22,12 +24,14 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
     }
 
     override fun onBindViewHolder(holder: WorkoutAdapter.WorkoutViewHolder, position: Int) {
+        model.updateCurrentPos(position)
         holder.bind(model.getWorkoutAt(position))
     }
 
     override fun getItemCount() = model.size()
 
     fun addWorkout(workout: Workout?) {
+        exerciseViewModel.reset()
         model.addWorkout(workout) {
             Log.d("WT", "Notifying data set changed: ${model.size()}")
             notifyDataSetChanged()
@@ -39,7 +43,12 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
         val workoutDateView: TextView = itemView.findViewById(R.id.workout_date_text_view)
 
         init {
-
+            itemView.setOnClickListener {
+                model.updateCurrentPos(adapterPosition)
+                exerciseViewModel.exercises = model.getCurrentWorkout().exercises
+                exerciseViewModel.updateCurrentPos(0)
+                itemView.findNavController().navigate(R.id.nav_track_workout)
+            }
         }
 
         fun bind(workout: Workout) {
