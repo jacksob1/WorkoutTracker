@@ -3,6 +3,7 @@ package edu.rosehulman.workouttracker
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,7 @@ class ViewExerciseAdapter(val fragment: ViewWorkoutFragment): RecyclerView.Adapt
         val notesValue: TextView = itemView.findViewById(R.id.exercise_notes_value_text_view)
 
         init {
-
+            itemView.findViewById<ImageView>(R.id.delete_icon).visibility = ImageView.GONE
         }
 
         fun bind(exercise: Exercise) {
