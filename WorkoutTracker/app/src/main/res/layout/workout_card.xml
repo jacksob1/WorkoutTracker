@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:layout_margin="15dp"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/workout_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/workout"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/workout_date_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="01/01/2021"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/workout_name_text_view"/>
+
+
+</RelativeLayout>

@@ -38,10 +38,11 @@ class ExerciseEditFragment : Fragment() {
     fun setupListeners() {
         binding.doneButton.setOnClickListener {
             var exerciseName = binding.pickerTextView.text.toString()
-            model.getCurrentExercise().name = if(exerciseName.isNotBlank()){exerciseName} else {"Exercise"}
-            model.getCurrentExercise().sets = binding.exerciseSetsValue.text.toString().toInt()
-            model.getCurrentExercise().reps = binding.exerciseRepsValue.text.toString().toInt()
-            model.getCurrentExercise().notes = binding.exerciseNotesValue.text.toString()
+            exerciseName = if(exerciseName.isNotBlank()){exerciseName} else {"Exercise"}
+            var sets = binding.exerciseSetsValue.text.toString().toInt()
+            var reps = binding.exerciseRepsValue.text.toString().toInt()
+            var notes = binding.exerciseNotesValue.text.toString()
+            model.updateCurrentExercise(exerciseName, sets, reps, notes)
             findNavController().navigate(R.id.nav_track_workout)
         }
 
