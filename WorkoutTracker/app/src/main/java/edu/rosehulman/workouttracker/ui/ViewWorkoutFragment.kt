@@ -47,8 +47,12 @@ class ViewWorkoutFragment : Fragment() {
         binding.templateButton.setOnClickListener {
             workoutsViewModel.addWorkout(null)
             val original = exerciseViewModel.exercises
-            exerciseViewModel.exercises = ArrayList<Exercise>()
-            exerciseViewModel.exercises.addAll(original)
+            val newExercises = ArrayList<Exercise>()
+
+            for(i in original.indices) {
+                newExercises.add(original[i].copy(original[i].name, original[i].sets, original[i].reps))
+            }
+            exerciseViewModel.exercises = newExercises
             findNavController().navigate(R.id.nav_track_workout)
         }
     }
