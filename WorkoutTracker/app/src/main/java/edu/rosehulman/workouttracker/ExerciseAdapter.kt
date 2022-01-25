@@ -3,6 +3,7 @@ package edu.rosehulman.workouttracker
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -38,11 +39,17 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
         val setsValue: TextView = itemView.findViewById(R.id.exercise_sets_value_text_view)
         val repsValue: TextView = itemView.findViewById(R.id.exercise_reps_value_text_view)
         val notesValue: TextView = itemView.findViewById(R.id.exercise_notes_value_text_view)
+        val deleteButton: ImageView = itemView.findViewById(R.id.delete_icon)
 
         init {
             itemView.setOnClickListener {
                 model.updateCurrentPos(adapterPosition)
                 itemView.findNavController().navigate(R.id.nav_exercise_form)
+            }
+
+            deleteButton.setOnClickListener {
+                model.removeExerciseAt(adapterPosition)
+                notifyDataSetChanged()
             }
         }
 

@@ -12,6 +12,12 @@
         android:text="@string/exercise_name"
         android:textSize="24sp"
         android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_delete_24"/>
     <RelativeLayout
         android:id="@+id/sets_relative_layout"
         android:layout_width="match_parent"

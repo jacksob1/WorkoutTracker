@@ -47,7 +47,6 @@ class ExerciseEditFragment : Fragment() {
         }
 
         binding.cancelButton.setOnClickListener {
-            model.removeCurrentQuote()
             findNavController().popBackStack()
         }
     }

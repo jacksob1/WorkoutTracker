@@ -33,8 +33,10 @@ class ExerciseViewModel: ViewModel() {
         currentPos = 0
     }
 
-    fun removeCurrentQuote() {
-        exercises.removeAt(currentPos)
+    fun removeCurrentExercise() = removeExerciseAt(currentPos)
+
+    fun removeExerciseAt(pos: Int) {
+        exercises.removeAt(pos)
         currentPos = 0
     }
 }
