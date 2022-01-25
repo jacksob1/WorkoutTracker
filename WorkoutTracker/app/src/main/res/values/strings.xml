@@ -39,4 +39,7 @@
     <string name="dev_name">Brandon Jackson</string>
     <string name="dev_email">jacksob1@rose-hulman.edu</string>
     <string name="view_workout">View Workout</string>
+    <string name="template_button_text">Use As\nTemplate</string>
+    <string name="share_button_text">Share</string>
+    <string name="edit_button_text">Edit</string>
 </resources>

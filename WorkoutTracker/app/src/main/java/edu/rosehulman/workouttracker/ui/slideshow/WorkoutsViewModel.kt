@@ -27,6 +27,14 @@ class WorkoutsViewModel : ViewModel() {
         updateAdapter = observer
     }
 
+    fun addWorkout(workout: Workout?) {
+        var newWorkout = workout?: Workout()
+        if(size() > 0) {
+            currentPos++
+        }
+        workouts.add(newWorkout)
+    }
+
     fun updateCurrentWorkout(name: String, exercises: ArrayList<Exercise>) {
         workouts[currentPos].name = name
         workouts[currentPos].exercises = exercises

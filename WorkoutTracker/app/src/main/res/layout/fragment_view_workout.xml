@@ -12,4 +12,28 @@
         android:layout_height="match_parent"
         />
 
+    <Button
+        android:id="@+id/template_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/template_button_text"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share_button_text" />
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_button_text"
+            android:layout_below="@id/share_button"/>
+    </RelativeLayout>
+
 </RelativeLayout>
