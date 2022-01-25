@@ -23,10 +23,16 @@
     <string name="exercise">Exercise</string>
     <string name="exercise_name_label">Exercise Name:</string>
     <string name="save">Save</string>
+    <string name="workouts_label">Workouts</string>
+    <string name="menu_past_workouts">Past Workouts</string>
     <string-array name="default_exercises">
         <item>Pull Ups</item>
         <item>Push Ups</item>
         <item>Sit Ups</item>
         <item>Forearm Plank</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_workout_as">Save Workout As:</string>
+    <string name="save_workout">Save Workout</string>
 </resources>

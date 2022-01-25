@@ -6,7 +6,7 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_track_workout"
         android:name="edu.rosehulman.workouttracker.ui.gallery.ExerciseListFragment"
         android:label="@string/menu_track_workout"
         tools:layout="@layout/fragment_exercise_list" />
@@ -18,8 +18,16 @@
         tools:layout="@layout/fragment_exercise_form" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.rosehulman.workouttracker.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_home"
+        android:name="edu.rosehulman.workouttracker.ui.slideshow.WorkoutListFragment"
+        android:label="@string/workouts_label"
+        tools:layout="@layout/fragment_workout_list" />
+
+    <fragment
+        android:id="@+id/nav_save_workout"
+        android:name="edu.rosehulman.workouttracker.ui.SaveWorkoutFragment"
+        android:label="@string/save_workout"
+        tools:layout="@layout/fragment_save_workout"
+
+        />
 </navigation>

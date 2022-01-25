@@ -33,6 +33,10 @@ class ExerciseListFragment : Fragment() {
             adapter.addExercise(null)
             findNavController().navigate(R.id.nav_exercise_form)
         }
+
+        binding.saveButton.setOnClickListener {
+            findNavController().navigate(R.id.nav_save_workout)
+        }
         return binding.root
     }
 }

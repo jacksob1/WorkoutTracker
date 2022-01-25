@@ -37,11 +37,12 @@ class ExerciseEditFragment : Fragment() {
 
     fun setupListeners() {
         binding.doneButton.setOnClickListener {
-            model.getCurrentExercise().name = binding.pickerTextView.text.toString()
+            var exerciseName = binding.pickerTextView.text.toString()
+            model.getCurrentExercise().name = if(exerciseName.isNotBlank()){exerciseName} else {"Exercise"}
             model.getCurrentExercise().sets = binding.exerciseSetsValue.text.toString().toInt()
             model.getCurrentExercise().reps = binding.exerciseRepsValue.text.toString().toInt()
             model.getCurrentExercise().notes = binding.exerciseNotesValue.text.toString()
-            findNavController().navigate(R.id.nav_home)
+            findNavController().navigate(R.id.nav_track_workout)
         }
 
         binding.cancelButton.setOnClickListener {
