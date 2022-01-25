@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import edu.rosehulman.workouttracker.R
 import edu.rosehulman.workouttracker.WorkoutAdapter
 import edu.rosehulman.workouttracker.databinding.FragmentWorkoutListBinding
@@ -22,6 +23,7 @@ class WorkoutListFragment : Fragment() {
         binding = FragmentWorkoutListBinding.inflate(inflater, container, false)
         var adapter = WorkoutAdapter(this)
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.setHasFixedSize(true)
 
         binding.fab.setOnClickListener {
