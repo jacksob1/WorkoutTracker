@@ -38,9 +38,11 @@ class ExerciseEditFragment : Fragment() {
     fun setupListeners() {
         binding.doneButton.setOnClickListener {
             var exerciseName = binding.pickerTextView.text.toString()
+            var setsText = binding.exerciseSetsValue.text.toString()
+            var repsText = binding.exerciseRepsValue.text.toString()
             exerciseName = if(exerciseName.isNotBlank()){exerciseName} else {"Exercise"}
-            var sets = binding.exerciseSetsValue.text.toString().toInt()
-            var reps = binding.exerciseRepsValue.text.toString().toInt()
+            var sets = if(setsText.isNotBlank()){if(setsText.toInt() > 0){setsText.toInt()} else {0}} else {model.getCurrentExercise().sets}
+            var reps = if(repsText.isNotBlank()){if(repsText.toInt() > 0){repsText.toInt()} else {0}} else {model.getCurrentExercise().reps}
             var notes = binding.exerciseNotesValue.text.toString()
             model.updateCurrentExercise(exerciseName, sets, reps, notes)
             findNavController().navigate(R.id.nav_track_workout)
@@ -57,8 +59,8 @@ class ExerciseEditFragment : Fragment() {
         if(name != "Exercise" && name.isNotBlank()) {
             binding.pickerTextView.setText(model.getCurrentExercise().name)
         }
-        binding.exerciseSetsValue.setText(model.getCurrentExercise().sets.toString())
-        binding.exerciseRepsValue.setText(model.getCurrentExercise().reps.toString())
+        binding.exerciseSetsValue.hint = model.getCurrentExercise().sets.toString()
+        binding.exerciseRepsValue.hint = model.getCurrentExercise().reps.toString()
         binding.exerciseNotesValue.setText(model.getCurrentExercise().notes)
     }
 }
