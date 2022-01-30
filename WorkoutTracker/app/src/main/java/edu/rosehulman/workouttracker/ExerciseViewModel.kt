@@ -3,6 +3,7 @@ package edu.rosehulman.workouttracker
 import androidx.lifecycle.ViewModel
 
 class ExerciseViewModel: ViewModel() {
+    var exerciseChoices: ArrayList<String> = arrayListOf("Pull Ups", "Sit Ups", "Push Ups", "Forearm Plank")
     var exercises = ArrayList<Exercise>()
     var currentPos = 0
 
@@ -23,6 +24,9 @@ class ExerciseViewModel: ViewModel() {
 
     fun updateCurrentExercise(name: String, sets: Int, reps: Int, notes: String) {
         exercises[currentPos].name = name
+        if(!exerciseChoices.contains(name)) {
+            exerciseChoices.add(name)
+        }
         exercises[currentPos].sets = sets
         exercises[currentPos].reps = reps
         exercises[currentPos].notes = notes

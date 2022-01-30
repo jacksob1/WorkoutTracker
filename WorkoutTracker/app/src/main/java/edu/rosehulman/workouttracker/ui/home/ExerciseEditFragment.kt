@@ -28,7 +28,7 @@ class ExerciseEditFragment : Fragment() {
         binding = FragmentExerciseFormBinding.inflate(inflater, container, false)
 
         setupListeners()
-        val items = resources.getStringArray(R.array.default_exercises)
+        val items = model.exerciseChoices
         val adapter = ArrayAdapter(requireActivity(), R.layout.drop_down_item, items)
         binding.pickerTextView.setAdapter(adapter)
         updateView()
