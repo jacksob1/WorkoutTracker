@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_splash">
 
     <fragment
         android:id="@+id/nav_track_workout"
@@ -33,4 +33,8 @@
         android:name="edu.rosehulman.workouttracker.ui.ViewWorkoutFragment"
         android:label="@string/view_workout"
         tools:layout="@layout/fragment_view_workout"/>
+    <fragment
+        android:id="@+id/nav_splash"
+        android:name="edu.rosehulman.workouttracker.ui.SplashFragment"
+        tools:layout="@layout/fragment_splash"/>
 </navigation>

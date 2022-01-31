@@ -30,6 +30,11 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
 
     override fun getItemCount() = model.size()
 
+    fun addListener() {
+        model.addListener {
+            notifyDataSetChanged()
+        }
+    }
     fun addWorkout(workout: Workout?) {
         exerciseViewModel.reset()
         model.addWorkout(workout) {
@@ -45,6 +50,7 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
         init {
             itemView.setOnClickListener {
                 model.updateCurrentPos(adapterPosition)
+                exerciseViewModel.workoutId = model.getCurrentWorkout().id
                 exerciseViewModel.exercises = model.getCurrentWorkout().exercises
                 exerciseViewModel.updateCurrentPos(0)
                 itemView.findNavController().navigate(R.id.nav_view_workout)
@@ -53,7 +59,7 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
 
         fun bind(workout: Workout) {
             workoutNameView.text = workout.name
-            //TODO: Add creation date once hooked up to firebase
+            workoutDateView.text = workout.created.toString()
         }
     }
 

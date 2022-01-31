@@ -38,7 +38,7 @@ class SaveWorkoutFragment : Fragment() {
             Log.d("WT", "Clicked done")
             var name = binding.workoutName.text.toString()
 
-            name = if(name.isNotBlank()) {name} else {"Workout${Random.nextInt(100)}"}
+            name = if(name.isNotBlank()) {name} else {workoutsViewModel.getCurrentWorkout().name}
             var exercises = exerciseModel.exercises
             workoutsViewModel.updateCurrentWorkout(name, exercises)
 

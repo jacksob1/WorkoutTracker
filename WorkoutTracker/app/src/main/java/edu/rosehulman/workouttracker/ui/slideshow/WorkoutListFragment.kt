@@ -22,13 +22,14 @@ class WorkoutListFragment : Fragment() {
     ): View? {
         binding = FragmentWorkoutListBinding.inflate(inflater, container, false)
         var adapter = WorkoutAdapter(this)
+        adapter.addListener()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.setHasFixedSize(true)
 
         binding.fab.setOnClickListener {
             adapter.addWorkout(null)
-            findNavController().navigate(R.id.nav_track_workout)
+            //findNavController().navigate(R.id.nav_track_workout)
         }
         return binding.root
     }

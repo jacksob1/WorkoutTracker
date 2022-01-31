@@ -25,13 +25,14 @@ class ExerciseListFragment : Fragment() {
     ): View? {
         binding = FragmentExerciseListBinding.inflate(inflater, container, false)
         val adapter = ExerciseAdapter(this)
+        adapter.addListener()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.setHasFixedSize(true)
 
         binding.fab.setOnClickListener {
             adapter.addExercise(null)
-            findNavController().navigate(R.id.nav_exercise_form)
+            //findNavController().navigate(R.id.nav_exercise_form)
         }
 
         binding.saveButton.setOnClickListener {

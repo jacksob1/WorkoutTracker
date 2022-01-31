@@ -26,6 +26,7 @@ class ViewWorkoutFragment : Fragment() {
         exerciseViewModel = ViewModelProvider(requireActivity()).get(ExerciseViewModel::class.java)
         binding = FragmentViewWorkoutBinding.inflate(inflater, container, false)
         val adapter = ViewExerciseAdapter(this)
+        adapter.addListener()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.setHasFixedSize(true)

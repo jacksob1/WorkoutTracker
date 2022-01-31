@@ -34,6 +34,12 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
         model.addExercise(exercise)
     }
 
+    fun addListener() {
+        model.addListener() {
+            notifyDataSetChanged()
+        }
+    }
+
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val exerciseName: TextView = itemView.findViewById(R.id.exercise_name_text_view)
         val setsValue: TextView = itemView.findViewById(R.id.exercise_sets_value_text_view)
