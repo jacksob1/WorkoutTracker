@@ -59,7 +59,7 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
 
         fun bind(workout: Workout) {
             workoutNameView.text = workout.name
-            workoutDateView.text = workout.created.toString()
+            workoutDateView.text = workout.created?.toDate().toString()
         }
     }
 

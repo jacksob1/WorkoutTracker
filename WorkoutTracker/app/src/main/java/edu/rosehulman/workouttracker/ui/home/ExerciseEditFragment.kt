@@ -28,7 +28,7 @@ class ExerciseEditFragment : Fragment() {
         binding = FragmentExerciseFormBinding.inflate(inflater, container, false)
 
         setupListeners()
-        val items = model.exerciseChoices
+        val items = model.getChoices()
         val adapter = ArrayAdapter(requireActivity(), R.layout.drop_down_item, items)
         binding.pickerTextView.setAdapter(adapter)
         updateView()
@@ -51,6 +51,7 @@ class ExerciseEditFragment : Fragment() {
         binding.cancelButton.setOnClickListener {
             findNavController().popBackStack()
         }
+        model.getExerciseNames()
     }
 
     fun updateView() {

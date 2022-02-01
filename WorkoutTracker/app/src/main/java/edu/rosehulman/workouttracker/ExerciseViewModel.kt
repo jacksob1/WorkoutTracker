@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class ExerciseViewModel: ViewModel() {
     var workoutId: String? = null
-    var exerciseChoices: ArrayList<String> = arrayListOf("Pull Ups", "Sit Ups", "Push Ups", "Forearm Plank")
+    var exerciseChoices: ArrayList<ExerciseName> = ArrayList<ExerciseName>()
     lateinit var ref: CollectionReference
     var exercises = ArrayList<Exercise>()
     var currentPos = 0
@@ -33,8 +33,12 @@ class ExerciseViewModel: ViewModel() {
 
     fun updateCurrentExercise(name: String, sets: Int, reps: Int, notes: String) {
         exercises[currentPos].name = name
-        if(!exerciseChoices.contains(name)) {
-            exerciseChoices.add(name)
+        var exerciseName = ExerciseName(name)
+        if(!exerciseChoices.contains(exerciseName)) {
+            var nameRef = Firebase.firestore.collection("exerciseNames")
+            nameRef.add(exerciseName).addOnSuccessListener {
+                getExerciseNames()
+            }
         }
         exercises[currentPos].sets = sets
         exercises[currentPos].reps = reps
@@ -51,6 +55,25 @@ class ExerciseViewModel: ViewModel() {
         var exercise = exercises.removeAt(pos)
         currentPos = 0
         ref.document(exercise.id).delete()
+    }
+
+    fun getExerciseNames() {
+        var nameRef = Firebase.firestore.collection("exerciseNames")
+
+        nameRef.get().addOnSuccessListener { snapshot: QuerySnapshot ->
+            exerciseChoices.clear()
+            snapshot.documents.forEach {
+                exerciseChoices.add(it.toObject(ExerciseName::class.java)!!)
+            }
+        }
+    }
+
+    fun getChoices(): ArrayList<String> {
+        var choices = ArrayList<String>()
+        exerciseChoices.forEach {
+            choices.add(it.name)
+        }
+        return choices
     }
 
     fun addListener(observer: () -> Unit) {
