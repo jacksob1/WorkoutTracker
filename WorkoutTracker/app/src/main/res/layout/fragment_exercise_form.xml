@@ -24,8 +24,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:hint="@string/exercise">
+            android:layout_alignParentEnd="true">
 
             <AutoCompleteTextView
                 android:id="@+id/picker_text_view"

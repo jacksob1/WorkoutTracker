@@ -25,6 +25,7 @@ class ExerciseEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         model = ViewModelProvider(requireActivity())[ExerciseViewModel::class.java]
+        model.getExerciseNames()
         binding = FragmentExerciseFormBinding.inflate(inflater, container, false)
 
         setupListeners()
@@ -51,14 +52,13 @@ class ExerciseEditFragment : Fragment() {
         binding.cancelButton.setOnClickListener {
             findNavController().popBackStack()
         }
-        model.getExerciseNames()
     }
 
     fun updateView() {
         var name = model.getCurrentExercise().name
 
         if(name != "Exercise" && name.isNotBlank()) {
-            binding.pickerTextView.setText(model.getCurrentExercise().name)
+            binding.pickerTextView.hint = model.getCurrentExercise().name
         }
         binding.exerciseSetsValue.hint = model.getCurrentExercise().sets.toString()
         binding.exerciseRepsValue.hint = model.getCurrentExercise().reps.toString()
