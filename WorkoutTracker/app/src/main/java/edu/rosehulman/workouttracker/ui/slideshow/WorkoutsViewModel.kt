@@ -25,7 +25,7 @@ class WorkoutsViewModel : ViewModel() {
     fun getCurrentWorkout() = getWorkoutAt(currentPos)
     fun size() = workouts.size
 
-    fun addWorkout(workout: Workout?, observer: () -> Unit) {
+    fun addWorkoutThroughAdapter(workout: Workout?, observer: () -> Unit) {
         var newWorkout = workout?: Workout()
         if(size() > 0) {
             updateCurrentPos(size())
@@ -34,12 +34,14 @@ class WorkoutsViewModel : ViewModel() {
         updateAdapter = observer
     }
 
-    fun addWorkout(workout: Workout?) {
+    fun addWorkout(workout: Workout?, observer: (id: String) -> Unit) {
         var newWorkout = workout?: Workout()
         if(size() > 0) {
             updateCurrentPos(size())
         }
-        ref.add(newWorkout)
+        ref.add(newWorkout).addOnSuccessListener {
+            observer(it.id)
+        }
     }
 
     fun addListener(observer: () -> Unit) {

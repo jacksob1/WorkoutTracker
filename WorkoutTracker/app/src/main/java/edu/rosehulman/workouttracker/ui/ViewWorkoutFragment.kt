@@ -46,15 +46,17 @@ class ViewWorkoutFragment : Fragment() {
         }
 
         binding.templateButton.setOnClickListener {
-            workoutsViewModel.addWorkout(null)
-            val original = exerciseViewModel.exercises
-            val newExercises = ArrayList<Exercise>()
+            workoutsViewModel.addWorkout(null) {
+                exerciseViewModel.setWorkout(it)
+                val original = exerciseViewModel.exercises
+                val newExercises = ArrayList<Exercise>()
 
-            for(i in original.indices) {
-                newExercises.add(original[i].copy(original[i].name, original[i].sets, original[i].reps))
+                for(i in original.indices) {
+                    newExercises.add(original[i].copy(original[i].name, original[i].sets, original[i].reps))
+                }
+                exerciseViewModel.setExerciseList(newExercises)
+                findNavController().navigate(R.id.nav_track_workout)
             }
-            exerciseViewModel.exercises = newExercises
-            findNavController().navigate(R.id.nav_track_workout)
         }
     }
 }

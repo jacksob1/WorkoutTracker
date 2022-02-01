@@ -31,6 +31,8 @@ class ExerciseViewModel: ViewModel() {
         ref.add(newExercise)
     }
 
+
+
     fun updateCurrentExercise(name: String, sets: Int, reps: Int, notes: String) {
         exercises[currentPos].name = name
         var exerciseName = ExerciseName(name)
@@ -44,6 +46,19 @@ class ExerciseViewModel: ViewModel() {
         exercises[currentPos].reps = reps
         exercises[currentPos].notes = notes
         ref.document(getCurrentExercise().id).set(getCurrentExercise())
+    }
+
+    fun setWorkout(id: String) {
+        workoutId = id
+        var uid = Firebase.auth.uid!!
+        ref = Firebase.firestore.collection("users").document(uid).collection("workouts").document(workoutId!!).collection("exercises")
+    }
+
+    fun setExerciseList(newList: ArrayList<Exercise>) {
+        exercises.clear()
+        newList.forEach {
+            addExercise(it)
+        }
     }
 
     fun reset() {

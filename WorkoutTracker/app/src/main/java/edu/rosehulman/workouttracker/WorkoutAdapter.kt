@@ -37,7 +37,7 @@ class WorkoutAdapter(val fragment: WorkoutListFragment): RecyclerView.Adapter<Wo
     }
     fun addWorkout(workout: Workout?) {
         exerciseViewModel.reset()
-        model.addWorkout(workout) {
+        model.addWorkoutThroughAdapter(workout) {
             Log.d("WT", "Notifying data set changed: ${model.size()}")
             notifyDataSetChanged()
         }
