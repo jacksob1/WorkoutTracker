@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home
+                R.id.nav_home, R.id.nav_user
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -86,20 +86,19 @@ class MainActivity : AppCompatActivity() {
                     Log.d("WT", "User: $uid, $displayName, $email, $photoUrl")
                 }
 
-//                val userModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//                userModel.getOrMakeUser() {
-//                    if (userModel.hasCompletedSetup()) {
-//                        val id = findNavController(
-//                            R.id.nav_host_fragment_content_main).currentDestination!!.id
-//                        if (id == R.id.nav_splash) {
-//                            findNavController(R.id.nav_host_fragment_content_main)
-//                                .navigate(R.id.nav_home)
-//                        }
-//                    } else {
-//                        navController.navigate(R.id.navigation_user_edit)
-//                    }
-//                }
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.nav_home)
+                val userModel = ViewModelProvider(this).get(UserViewModel::class.java)
+                userModel.getOrMakeUser() {
+                    if (userModel.hasCompletedSetup()) {
+                        val id = findNavController(
+                            R.id.nav_host_fragment_content_main).currentDestination!!.id
+                        if (id == R.id.nav_splash) {
+                            findNavController(R.id.nav_host_fragment_content_main)
+                                .navigate(R.id.nav_home)
+                        }
+                    } else {
+                        navController.navigate(R.id.nav_user_edit)
+                    }
+                }
             }
         }
     }

@@ -43,4 +43,17 @@
     <string name="share_button_text">Share</string>
     <string name="edit_button_text">Edit</string>
     <string name="loading">Loading...</string>
+    <string name="logout">Logout</string>
+    <string name="edit">Edit</string>
+    <string name="name">Name</string>
+    <string name="profile_label">Your Profile</string>
+    <string name="detail_1">Detail 1</string>
+    <string name="detail_2">Detail 2</string>
+    <string name="profile">Profile</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="your_name_hint">Your name</string>
+    <string name="age">age</string>
+    <string name="major">major</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="image">Image</string>
 </resources>
