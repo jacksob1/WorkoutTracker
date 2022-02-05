@@ -56,4 +56,9 @@
     <string name="major">major</string>
     <string name="upload_photo">Upload Photo</string>
     <string name="image">Image</string>
+    <string name="email_address">Email Address</string>
+    <string name="subject">Subject</string>
+    <string name="email_message">Email Message</string>
+    <string name="send">Send</string>
+    <string name="attachment">attachment</string>
 </resources>

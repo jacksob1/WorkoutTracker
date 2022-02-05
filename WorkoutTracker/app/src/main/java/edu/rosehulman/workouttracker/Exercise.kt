@@ -12,6 +12,10 @@ data class Exercise(var name: String = "Exercise", var sets: Int = 0, var reps: 
     @ServerTimestamp
     var created: Timestamp? = null
 
+    override fun toString(): String {
+        return "$name, $sets, $reps, $notes,\n"
+    }
+
     companion object {
         fun from(snapshot: DocumentSnapshot): Exercise {
             var exercise = snapshot.toObject(Exercise::class.java)!!

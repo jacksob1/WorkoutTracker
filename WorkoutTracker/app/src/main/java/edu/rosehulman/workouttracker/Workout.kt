@@ -12,6 +12,13 @@ data class Workout(var name: String = "Workout", var exercises: ArrayList<Exerci
     @ServerTimestamp
     var created: Timestamp? = null
 
+    override fun toString(): String {
+        var workoutString = "Exercise Name, Sets, Reps, Notes,\n"
+        exercises.forEach {
+            workoutString += it.toString()
+        }
+        return workoutString
+    }
     companion object {
         fun from(snapshot: DocumentSnapshot): Workout {
             var workout = snapshot.toObject(Workout::class.java)!!

@@ -29,7 +29,6 @@ class WorkoutListFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             adapter.addWorkout(null)
-            //findNavController().navigate(R.id.nav_track_workout)
         }
         return binding.root
     }

@@ -1,10 +1,15 @@
 package edu.rosehulman.workouttracker.ui
 
+import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +17,7 @@ import edu.rosehulman.workouttracker.*
 import edu.rosehulman.workouttracker.databinding.FragmentExerciseListBinding
 import edu.rosehulman.workouttracker.databinding.FragmentViewWorkoutBinding
 import edu.rosehulman.workouttracker.ui.slideshow.WorkoutsViewModel
+import java.io.File
 
 class ViewWorkoutFragment : Fragment() {
     private lateinit var workoutsViewModel: WorkoutsViewModel
@@ -39,6 +45,7 @@ class ViewWorkoutFragment : Fragment() {
     fun setupButtons() {
         binding.shareButton.setOnClickListener {
             //TODO: Add share functionality after figuring out format to share the data in
+            composeEmail()
         }
 
         binding.editButton.setOnClickListener {
@@ -57,6 +64,24 @@ class ViewWorkoutFragment : Fragment() {
                 exerciseViewModel.setExerciseList(newExercises)
                 findNavController().navigate(R.id.nav_track_workout)
             }
+        }
+    }
+
+    fun composeEmail() {
+        var file = File(requireActivity().filesDir, workoutsViewModel.getCurrentWorkout().id+".csv")
+        file.createNewFile()
+
+        file.writeText(workoutsViewModel.getCurrentWorkout().toString())
+
+        var uri = FileProvider.getUriForFile(requireContext(), "edu.rosehulman.workouttracker.provider", file)
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "Check out this new workout")
+            putExtra(Intent.EXTRA_TEXT, "Check out this great workout that I created.")
+            putExtra(Intent.EXTRA_STREAM, uri)
+        }
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivity(intent)
         }
     }
 }
