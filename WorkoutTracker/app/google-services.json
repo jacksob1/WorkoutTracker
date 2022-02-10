@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "505396507734-mksv1m7q4taemau0jkkqpfthtbi5m271.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.rosehulman.workouttracker",
+            "certificate_hash": "680b6c90d2bb7a8c63901121f5cf3f68172b0a5f"
+          }
+        },
+        {
           "client_id": "505396507734-npe9ocm6qkqv2q9qnbkk1p8eeuaureg5.apps.googleusercontent.com",
           "client_type": 3
         }

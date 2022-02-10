@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupAuthUI() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.PhoneBuilder().build(),
             AuthUI.IdpConfig.GoogleBuilder().build()
         )
         val signinIntent = AuthUI.getInstance()
