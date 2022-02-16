@@ -26,14 +26,13 @@ class ExerciseEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         model = ViewModelProvider(requireActivity())[ExerciseViewModel::class.java]
-        model.getExerciseNames()
         binding = FragmentExerciseFormBinding.inflate(inflater, container, false)
 
         updateView()
 
         setupListeners()
 
-        val items = model.getChoices()
+        val items = resources.getStringArray(R.array.default_exercises)
         val adapter = ArrayAdapter(requireActivity(), R.layout.drop_down_item, items)
         binding.pickerTextView.setAdapter(adapter)
         return binding.root

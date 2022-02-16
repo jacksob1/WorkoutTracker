@@ -1,9 +1,10 @@
 package edu.rosehulman.workouttracker
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,6 +17,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.common.api.Scope
+import com.google.android.gms.fitness.FitnessOptions
+import com.google.android.gms.fitness.data.DataType
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -86,14 +91,13 @@ class MainActivity : AppCompatActivity() {
                     Log.d("WT", "User: $uid, $displayName, $email, $photoUrl")
                 }
 
+                setupGooglePermissions()
                 val userModel = ViewModelProvider(this).get(UserViewModel::class.java)
                 userModel.getOrMakeUser() {
                     if (userModel.hasCompletedSetup()) {
-                        val id = findNavController(
-                            R.id.nav_host_fragment_content_main).currentDestination!!.id
+                        val id = findNavController(R.id.nav_host_fragment_content_main).currentDestination!!.id
                         if (id == R.id.nav_splash) {
-                            findNavController(R.id.nav_host_fragment_content_main)
-                                .navigate(R.id.nav_home)
+                            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.nav_home)
                         }
                     } else {
                         navController.navigate(R.id.nav_user_edit)
@@ -115,4 +119,35 @@ class MainActivity : AppCompatActivity() {
             .build()
         signinLauncher.launch(signinIntent)
     }
+
+    private fun setupGooglePermissions() {
+        var fitnessOptions = FitnessOptions.builder()
+            .addDataType(DataType.TYPE_WORKOUT_EXERCISE, FitnessOptions.ACCESS_WRITE)
+            .build()
+
+        var googleSignInAccount = GoogleSignIn.getAccountForExtension(this, fitnessOptions)
+        if (!GoogleSignIn.hasPermissions(googleSignInAccount, fitnessOptions)) {
+            GoogleSignIn.requestPermissions(
+                this, // your activity
+                1, // e.g. 1
+                googleSignInAccount,
+                fitnessOptions)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (resultCode) {
+            Activity.RESULT_OK -> when (requestCode) {
+                1 -> Log.d("WT", "Authenticated with google services")
+                else -> {
+                    // Result wasn't from Google Fit
+                }
+            }
+            else -> {
+                // Permission not granted
+            }
+        }
+    }
+
 }

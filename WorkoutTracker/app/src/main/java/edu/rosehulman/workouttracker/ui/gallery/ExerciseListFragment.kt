@@ -26,6 +26,7 @@ class ExerciseListFragment : Fragment() {
         binding = FragmentExerciseListBinding.inflate(inflater, container, false)
         val adapter = ExerciseAdapter(this)
         adapter.addListener()
+        adapter.setContextForExercises(requireContext())
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.setHasFixedSize(true)

@@ -24,14 +24,17 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true">
+            android:layout_alignParentEnd="true"
+            android:background="@color/light_gray"
+            app:boxBackgroundMode="outline"
+            >
 
             <AutoCompleteTextView
                 android:id="@+id/picker_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:background="@color/light_gray"
+                android:inputType="none"
+                android:textColorHint="@color/black"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>

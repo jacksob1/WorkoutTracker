@@ -1,5 +1,6 @@
 package edu.rosehulman.workouttracker
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,10 @@ class ExerciseAdapter(val fragment: ExerciseListFragment): RecyclerView.Adapter<
         model.addListener() {
             notifyDataSetChanged()
         }
+    }
+
+    fun setContextForExercises(newContext: Context) {
+        model.setContextForExercises(newContext)
     }
 
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

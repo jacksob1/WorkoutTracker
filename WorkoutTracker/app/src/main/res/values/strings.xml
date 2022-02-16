@@ -26,12 +26,71 @@
     <string name="workouts_label">Workouts</string>
     <string name="menu_past_workouts">Past Workouts</string>
     <string-array name="default_exercises">
-        <item>Pull Ups</item>
-        <item>Push Ups</item>
-        <item>Sit Ups</item>
+        <item>Arnold Press</item>
+        <item>Back Extension"</item>
+        <item>Bench Press</item>
+        <item>Bicep Curls</item>
+        <item>Burpees</item>
+        <item>Calf Press</item>
+        <item>Calf Raises</item>
+        <item>Chest Dips</item>
+        <item>Chin Ups</item>
+        <item>Clean</item>
+        <item>Clean &amp; Jerk</item>
+        <item>Close Grip Bench Press</item>
+        <item>Close Grip Push Ups</item>
+        <item>Crunches</item>
+        <item>Deadlift</item>
+        <item>Decline Bench Press</item>
+        <item>Dips</item>
+        <item>Flies</item>
+        <item>Front Raise</item>
+        <item>Good Mornings</item>
+        <item>Hang Clean</item>
+        <item>Hang Power Clean</item>
+        <item>High Row</item>
+        <item>Hip Thrust</item>
+        <item>JM Press</item>
+        <item>Jumping Jacks</item>
+        <item>Lateral Raise</item>
+        <item>Leg Curls</item>
+        <item>Leg Extensions</item>
+        <item>Leg Press</item>
+        <item>Leg Raises</item>
+        <item>Lunges</item>
+        <item>Military Press</item>
+        <item>Pike Press</item>
+        <item>Pike Push Ups</item>
+        <item>Plank</item>
         <item>Forearm Plank</item>
+        <item>Power Clean</item>
+        <item>Pull Ups</item>
+        <item>Lat Pulldown</item>
+        <item>RDLs</item>
+        <item>Reverse Lunge</item>
+        <item>Rows</item>
+        <item>Russian Twists</item>
+        <item>Seated Calf Raises</item>
+        <item>Shoulder Press</item>
+        <item>Shoulder Shrugs</item>
+        <item>Side Lunge</item>
+        <item>Side Plank</item>
+        <item>Single Leg Deadlift</item>
+        <item>Single Leg Hip Thrust</item>
+        <item>Sit Ups</item>
+        <item>Squats</item>
+        <item>Standing Calf Raises</item>
+        <item>Step Ups</item>
+        <item>Straight Leg Deadlift</item>
+        <item>Thrusters</item>
+        <item>Tricep Dips</item>
+        <item>Tricep Extensions</item>
+        <item>Twisting Crunches</item>
+        <item>Twisting Sit Ups</item>
+        <item>Upright Rows</item>
+        <item>V-Sit Ups</item>
+        <item>Wall Sit</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save_workout_as">Save Workout As:</string>
     <string name="save_workout">Save Workout</string>
