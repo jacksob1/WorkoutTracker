@@ -120,4 +120,5 @@
     <string name="email_message">Email Message</string>
     <string name="send">Send</string>
     <string name="attachment">attachment</string>
+    <string name="made_by">Made By:</string>
 </resources>
